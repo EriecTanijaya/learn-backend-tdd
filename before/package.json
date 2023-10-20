@@ -1,0 +1,25 @@
+{
+  "name": "backend-w-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:dev": "jest --watchAll",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "mongoose": "^7.5.2",
+    "nodemon": "^3.0.1",
+    "supertest": "^6.3.3"
+  }
+}
