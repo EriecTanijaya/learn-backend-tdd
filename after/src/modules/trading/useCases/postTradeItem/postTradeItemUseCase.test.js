@@ -67,7 +67,7 @@ describe('PostTradeItemUseCase', () => {
           // assert
           expect(result.isFailure).toBe(true);
 
-          const maxPostedTradeItemsExceededError = createPostTradeItemErrors.MaxPostedTradeItemsExceeded();
+          const maxPostedTradeItemsExceededError = createPostTradeItemErrors.maxPostedTradeItemsExceeded();
           expect(result.getErrorValue()).toEqual(maxPostedTradeItemsExceededError.getErrorValue());
         });
       });

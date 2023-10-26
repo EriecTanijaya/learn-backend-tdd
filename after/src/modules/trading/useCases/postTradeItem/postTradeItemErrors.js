@@ -4,7 +4,7 @@ exports.createPostTradeItemErrors = {
   traderDoesntExists(traderId) {
     return createFailureResult(`Trader with id ${traderId} doesn't exists`);
   },
-  MaxPostedTradeItemsExceeded() {
+  maxPostedTradeItemsExceeded() {
     return createFailureResult('MaxPostedTradeItemsExceededError');
   },
 };
