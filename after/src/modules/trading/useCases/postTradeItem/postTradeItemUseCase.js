@@ -16,8 +16,12 @@ exports.createPostTradeItemUseCase = ({ tradeItemRepo, traderRepo }) => {
       const tradeItemsByTrader = await tradeItemRepo.getItems({ traderId });
 
       if (tradeItemsByTrader.length) {
-        return createPostTradeItemErrors.MaxPostedTradeItemsExceeded();
+        return createPostTradeItemErrors.maxPostedTradeItemsExceeded();
       }
+
+      await tradeItemRepo.save();
+
+      return createSuccessResult();
     },
   };
 };
