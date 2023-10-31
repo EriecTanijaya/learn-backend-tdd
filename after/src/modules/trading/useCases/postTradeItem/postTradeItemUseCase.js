@@ -1,5 +1,4 @@
 const { createSuccessResult, createFailureResult } = require('../../../../shared/result');
-const { createTradeItem } = require('../../domain/tradeItem/tradeItem');
 const { createPostTradeItemErrors } = require('./postTradeItemErrors');
 const { v4: uuidv4 } = require('uuid');
 
@@ -20,17 +19,7 @@ exports.createPostTradeItemUseCase = ({ tradeItemRepo, traderRepo }) => {
         return createPostTradeItemErrors.maxPostedTradeItemsExceeded();
       }
 
-      // todo: pass the valid trade item to be saved
-      const tradeItemOrError = createTradeItem({ name, price });
-
-      if (tradeItemOrError.isFailure) {
-        return tradeItemOrError.getErrorValue();
-      }
-
-      /** @type {import('../../domain/tradeItem/tradeItem').TradeItem} */
-      const tradeItem = tradeItemOrError.getValue();
-
-      await tradeItemRepo.save(tradeItem);
+      await tradeItemRepo.save();
 
       return createSuccessResult();
     },
